@@ -1,73 +1,136 @@
 import re
-from pprint import pprint as print
 
-CLASS_PATTERN = r'class\s(\w+?)\(.+?\):'
-METHOD_PATTERN = r'\s+?def\s(\w+?)\(((.|\n)+?)\):'
 
-def is_class(line):
-    return line.startswith('class ')
+def is_need_to_break(line, current_index=None, all_lines=None, pass_class_method=False):
+    return is_import(line) \
+           or is_global_variable(line) \
+           or is_global_function(line) \
+           or (is_class_method(line, current_index, all_lines) if not pass_class_method else False) \
+           or is_class(line)
 
-def is_class_method(line):
-    return line.startswith('    def ')
 
-def get_class_name_from_(line):
-    return re.match(CLASS_PATTERN, line).groups()[0]
+def is_import(line=''):
+    return line.startswith('from') or line.startswith('import')
 
-def get_method_name_from_(line):
-    return re.match(METHOD_PATTERN, line).groups()[0]
 
-def get_method_params_from_(line):
-    str_params = re.match(METHOD_PATTERN, line).groups()[1]
-    split_params = str_params.split(',')
+def is_global_variable(line=''):
+    return re.match(r'^\w+?\s*?=', line)
 
-def get_method_code(method_name):
-    pass
 
-def get_class_names(lines):
-    classes = []
-    for line in lines:
-        if not is_class(line):
+def is_global_function(line=''):
+    return re.match(r'^def', line)
+
+
+def is_class_method(line, current_index, lines):
+    return re.match(r'^\s{4}def', line) and looking_for_class_of_method(current_index, lines)
+
+
+def is_class(line=''):
+    return re.match(r'^class', line)
+
+
+def write_import(file, line, current_index, all_lines):
+    file.write(line)
+    if current_index + 1 >= len(all_lines):
+        return
+    for next_line in all_lines[current_index + 1:]:
+        if is_need_to_break(next_line, current_index, all_lines):
+            break
+        file.write(next_line)
+
+
+def write_global_variable(file, line, current_index, all_lines):
+    return write_import(file, line, current_index, all_lines)
+
+
+def write_global_function(file, line, current_index, all_lines):
+    file.write(line)
+    if current_index + 1 >= len(all_lines):
+        return
+    for next_line in all_lines[current_index + 1:]:
+        if is_need_to_break(next_line, current_index, all_lines, pass_class_method=True):
+            break
+        file.write(next_line)
+
+
+def write_class_method(file, line, current_index, all_lines, class_name):
+    line = re.sub(r'^\s{4}(def)(\s+?)(\w+?)(\(.+?)(\))(.+?)',
+                  '\g<1> jprotect_cm_%s_\g<3>\g<4>, %s\g<5>\g<6>' % (class_name, class_name), line)
+    file.write(line)
+    if current_index + 1 >= len(all_lines):
+        return
+    for next_line in all_lines[current_index + 1:]:
+        if is_need_to_break(next_line) or next_line.startswith('    @'):
+            break
+        next_line = re.sub(r'^\s{4}(.+?)', '\g<1>', next_line)
+        if re.match(r'\w+?\s?=\s?fields\..+?\(', next_line)\
+                or re.match(r'\s*?#', next_line):
             continue
-        name = get_class_name_from_(line)
-        classes.append(name)
-    return classes
+        file.write(next_line)
 
-class OdooClass(object):
-    def __init__(self, name):
-        super().__init__(name)
-        self.name = name
-        self.methods = []
-    
-    def add_method(self, *method):
-        self.method += method
+def looking_for_class_of_method(current_index, all_lines):
+    class_name = None
+    for back_line in all_lines[:current_index][::-1]:
+        if is_need_to_break(back_line, current_index, all_lines, pass_class_method=True):
+            if is_class(back_line):
+                class_name = re.match('class\s+?(\w+?)\(', back_line).group(1)
+            break
+    return class_name
 
-class OdooMethod(object):
-    def __init__(self, name, *parameters, code):
-        super().__init__(name, *parameters, code=None)
-        self.name = name
-        self.parameters = parameters
-        self.code = code
 
-    def set_code(self, code):
-        self.code = code
-
-classes = []
-if __name__ == "__main__":
-    with open('C:/Users/hieudt/Desktop/advance/protect_python/separate_logic/hr_contract.py', 'r', encoding="utf8") as file:
+def separate_file(file_path, save_path, main_path):
+    with open(file_path, 'r', encoding='utf8') as file:
         lines = file.readlines()
 
-        class_names = get_class_names(lines)
-        for cls_name in class_names:
-            method_names = 
-        for line in lines:
-            if is_class(line):
-                class_name = get_class_name_from_(line)
-                classes.append(OdooClass(class_name))
-            if is_class_method(line):
-                method_name = get_method_name_from_(line)
-                method_params = get_method_params_from_(line)
-                method_code = get_method_params_from_(line)
-                method = OdooMethod()
-                classes[-1].add_method()
-        file.close()
+        save_file = open(save_path, 'w', encoding='utf8')
+        for index, l in enumerate(lines):
+            if is_import(l):
+                write_import(save_file, l, index, lines)
+            if is_global_variable(l):
+                write_global_variable(save_file, l, index, lines)
+            if is_global_function(l):
+                write_global_function(save_file, l, index, lines)
+            if is_class_method(l, index, lines):
+                class_name = None
+                for back_line in lines[:index][::-1]:
+                    if is_need_to_break(back_line, pass_class_method=True):
+                        if is_class(back_line):
+                            class_name = re.match('class\s+?(\w+?)\(', back_line).group(1)
+                        break
+                if class_name:
+                    write_class_method(save_file, l, index, lines, class_name)
+        save_file.close()
 
+        main_file = open(main_path, 'w', encoding='utf8')
+        main_file.write('from %s import *\n' % save_path.split('/')[-1].split('.')[0])
+        current_index = 0
+        while current_index < len(lines)-1:
+            l = lines[current_index]
+            if is_class_method(l, current_index, lines):
+                main_file.write(l)
+                class_name = looking_for_class_of_method(current_index=current_index, all_lines=lines)
+                if class_name:
+                    pattern = r'^\s{4}(def)(\s+?)(\w+?)(\(.+?)(\))(.+?)'
+                    replace_with = '%sreturn jprotect_cm_%s_\g<3>\g<4>, %s\g<5>\g<6>' % (' ' * 8, class_name, class_name)
+                    new_define = re.sub(pattern, replace_with, l)
+                    main_file.write(new_define)
+                pass_index = 0
+                if current_index <= len(lines):
+                    for j, next_line in enumerate(lines[current_index+1:], 1):
+                        if is_need_to_break(next_line, current_index+j, lines) or next_line.startswith('    @'):
+                            break
+                        pass_index += 1
+                current_index += pass_index
+                continue
+
+            main_file.write(l)
+            current_index += 1
+
+        main_file.close()
+
+
+if __name__ == "__main__":
+    file_path = 'C:/Users/duong/Desktop/advance/protect_python/separate_logic/hr_contract.py'
+    save_path = 'C:/Users/duong/Desktop/advance/protect_python/separate_logic/jprotect_hr_contract.py'
+    main_path = 'C:/Users/duong/Desktop/advance/protect_python/separate_logic/main_hr_contract.py'
+    separate_file(file_path, save_path, main_path)
