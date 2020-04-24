@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d37a957-d387-4327-bbad-4e4ad4194fea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" afterDir="false" />
-    </list>
+    <list default="true" id="4d37a957-d387-4327-bbad-4e4ad4194fea" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +137,7 @@
       <updated>1568169782285</updated>
       <workItem from="1587519667903" duration="1350000" />
       <workItem from="1587524744263" duration="589000" />
-      <workItem from="1587630644317" duration="13048000" />
+      <workItem from="1587630644317" duration="13068000" />
     </task>
     <servers />
   </component>
