@@ -54,13 +54,14 @@ def write_global_function(file, line, current_index, all_lines):
 
 
 def write_class_method(file, line, current_index, all_lines, class_name):
-    line = re.sub(r'^\s{4}(def)(\s+?)(\w+?)(\(.+?)(\))(.+?)',
-                  '\g<1> jprotect_cm_%s_\g<3>\g<4>, %s\g<5>\g<6>' % (class_name, class_name), line)
+    pattern = r'^\s{4}(def)(\s+?)(\w+?)(\(.+?)(\))(.+?)'
+    repl = '\g<1> jprotect_cm_{cls_name}_\g<3>\g<4>, {cls_name}=None\g<5>\g<6>'.format(cls_name=class_name)
+    line = re.sub(pattern, repl, line)
     file.write(line)
     if current_index + 1 >= len(all_lines):
         return
     for next_line in all_lines[current_index + 1:]:
-        if is_need_to_break(next_line) or next_line.startswith('    @'):
+        if is_need_to_break(next_line, current_index, all_lines) or next_line.startswith('    @'):
             break
         next_line = re.sub(r'^\s{4}(.+?)', '\g<1>', next_line)
         if re.match(r'\w+?\s?=\s?fields\..+?\(', next_line)\
@@ -110,8 +111,9 @@ def separate_file(file_path, save_path, main_path):
                 main_file.write(l)
                 class_name = looking_for_class_of_method(current_index=current_index, all_lines=lines)
                 if class_name:
-                    pattern = r'^\s{4}(def)(\s+?)(\w+?)(\(.+?)(\))(.+?)'
-                    replace_with = '%sreturn jprotect_cm_%s_\g<3>\g<4>, %s\g<5>\g<6>' % (' ' * 8, class_name, class_name)
+                    pattern = r'^\s{4}(def)(\s+?)(\w+?)(\(.+?)(\)):'
+                    replace_with = '%sreturn jprotect_cm_%s_\g<3>\g<4>, %s=%s\g<5>' % (
+                        ' ' * 8, class_name, class_name, class_name)
                     new_define = re.sub(pattern, replace_with, l)
                     main_file.write(new_define)
                 pass_index = 0
