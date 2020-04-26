@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d37a957-d387-4327-bbad-4e4ad4194fea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/main_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/main_hr_contract.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" afterDir="false" />
@@ -143,7 +143,7 @@
       <workItem from="1587519667903" duration="1350000" />
       <workItem from="1587524744263" duration="589000" />
       <workItem from="1587630644317" duration="13068000" />
-      <workItem from="1587915104783" duration="1269000" />
+      <workItem from="1587915104783" duration="3907000" />
     </task>
     <servers />
   </component>
@@ -164,6 +164,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/advance$separate_file.coverage" NAME="separate_file Coverage Results" MODIFIED="1587916365572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/protect_python/separate_logic" />
+    <SUITE FILE_PATH="coverage/advance$separate_file.coverage" NAME="separate_file Coverage Results" MODIFIED="1587918441784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/protect_python/separate_logic" />
   </component>
 </project>

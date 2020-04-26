@@ -54,8 +54,8 @@ def write_global_function(file, line, current_index, all_lines):
 
 
 def write_class_method(file, line, current_index, all_lines, class_name):
-    pattern = r'^\s{4}(def)(\s+?)(\w+?)(\(.+?)(\))(.+?)'
-    repl = '\g<1> jprotect_cm_{cls_name}_\g<3>\g<4>, {cls_name}=None\g<5>\g<6>'.format(cls_name=class_name)
+    pattern = r'^    def\s(\w+?)\((.+?),?\s?(\*\w+?)?(,?\s?)(\*\*\w*?)?\):'
+    repl = 'def jprotect_cm_{cls_name}_\g<1>(\g<2>, {cls_name}=None, \g<3>\g<4>\g<5>):'.format(cls_name=class_name)
     line = re.sub(pattern, repl, line)
     file.write(line)
     if current_index + 1 >= len(all_lines):
@@ -111,9 +111,9 @@ def separate_file(file_path, save_path, main_path):
                 main_file.write(l)
                 class_name = looking_for_class_of_method(current_index=current_index, all_lines=lines)
                 if class_name:
-                    pattern = r'^\s{4}(def)(\s+?)(\w+?)(\(.+?)(\)):'
-                    replace_with = '%sreturn jprotect_cm_%s_\g<3>\g<4>, %s=%s\g<5>' % (
-                        ' ' * 8, class_name, class_name, class_name)
+                    pattern = r'^    def\s(\w+?)\((.+?),?\s?(\*\w+?)?(,?\s?)(\*\*\w*?)?\):'
+                    replace_with = '        return jprotect_cm_{cls_name}_\g<1>(\g<2>, {cls_name}={cls_name}, \g<3>\g<4>\g<5>)'\
+                        .format(cls_name=class_name)
                     new_define = re.sub(pattern, replace_with, l)
                     main_file.write(new_define)
                 pass_index = 0

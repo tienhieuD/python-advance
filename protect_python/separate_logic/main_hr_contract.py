@@ -88,27 +88,27 @@ class TristarPayslipSumaryCanteen(models.TransientModel):
 
     @api.depends('payslip_id')
     def _compute_salary_categ(self):
-        return jprotect_cm_TristarPayslipSumaryCanteen__compute_salary_categ(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen)
+        return jprotect_cm_TristarPayslipSumaryCanteen__compute_salary_categ(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen, )
 
     @api.depends('contract_date_start')
     def _compute_worked_months(self):
-        return jprotect_cm_TristarPayslipSumaryCanteen__compute_worked_months(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen)
+        return jprotect_cm_TristarPayslipSumaryCanteen__compute_worked_months(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen, )
 
     @api.depends('payslip_id')
     def _compute_summary_salary(self):
-        return jprotect_cm_TristarPayslipSumaryCanteen__compute_summary_salary(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen)
+        return jprotect_cm_TristarPayslipSumaryCanteen__compute_summary_salary(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen, )
 
     @api.multi
     def generate_report(self, **kwargs):
-        return jprotect_cm_TristarPayslipSumaryCanteen_generate_report(self, **kwargs, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen)
+        return jprotect_cm_TristarPayslipSumaryCanteen_generate_report(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen, **kwargs)
 
     def _get_line_data(self, seq, s, just_foreign_payslip=False):
-        return jprotect_cm_TristarPayslipSumaryCanteen__get_line_data(self, seq, s, just_foreign_payslip=False, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen)
+        return jprotect_cm_TristarPayslipSumaryCanteen__get_line_data(self, seq, s, just_foreign_payslip=False, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen, )
 
     @api.model
     def export_payslip_run(self, run_id, just_foreign_payslip=False):
-        return jprotect_cm_TristarPayslipSumaryCanteen_export_payslip_run(self, run_id, just_foreign_payslip=False, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen)
+        return jprotect_cm_TristarPayslipSumaryCanteen_export_payslip_run(self, run_id, just_foreign_payslip=False, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen, )
 
     @api.multi
     def action_view_other_incomes(self):
-        return jprotect_cm_TristarPayslipSumaryCanteen_action_view_other_incomes(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen)
+        return jprotect_cm_TristarPayslipSumaryCanteen_action_view_other_incomes(self, TristarPayslipSumaryCanteen=TristarPayslipSumaryCanteen, )

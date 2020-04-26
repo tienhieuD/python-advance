@@ -7,7 +7,7 @@ from odoo.addons.tristar_payroll.models.hr_contract import SALARY_CATEG_SELECTIO
 
 X_SALARY_CATEG_SELECTION = SALARY_CATEG_SELECTION + [('90_transfer', 'Tăng cường')]
 
-def jprotect_cm_TristarPayslipSumaryCanteen__compute_salary_categ(self, TristarPayslipSumaryCanteen=None):
+def jprotect_cm_TristarPayslipSumaryCanteen__compute_salary_categ(self, TristarPayslipSumaryCanteen=None, ):
     for rec in self:
         if rec.payslip_id.employee_id.department_id != rec.payslip_id.payslip_run_id.dept_id:
             rec.x_salary_categ = '90_transfer'
@@ -16,7 +16,7 @@ def jprotect_cm_TristarPayslipSumaryCanteen__compute_salary_categ(self, TristarP
 
         rec.is_foreign_payslip = rec.payslip_id.input('TY_GIA') and rec.payslip_id.input('TY_GIA') != 1.0
 
-def jprotect_cm_TristarPayslipSumaryCanteen__compute_worked_months(self, TristarPayslipSumaryCanteen=None):
+def jprotect_cm_TristarPayslipSumaryCanteen__compute_worked_months(self, TristarPayslipSumaryCanteen=None, ):
     for rec in self:
         if not rec.contract_date_start:
             continue
@@ -24,7 +24,7 @@ def jprotect_cm_TristarPayslipSumaryCanteen__compute_worked_months(self, Tristar
         diff = relativedelta(rec.contract_date_start, today)
         rec.worked_months = abs(diff.years) * 12 + abs(diff.months)
 
-def jprotect_cm_TristarPayslipSumaryCanteen__compute_summary_salary(self, TristarPayslipSumaryCanteen=None):
+def jprotect_cm_TristarPayslipSumaryCanteen__compute_summary_salary(self, TristarPayslipSumaryCanteen=None, ):
     for rec in self:
         rec.current_wage = rec.payslip_id.line("LUONG_CO_BAN_CC")
         rec.responsibility_allowance = rec.payslip_id.line("LUONG_TRACH_NHIEM_CC")
@@ -61,7 +61,7 @@ def jprotect_cm_TristarPayslipSumaryCanteen__compute_summary_salary(self, Trista
         rec.real_salary = rec.payslip_id.line("LUONG_THUC_LINH_CC")
         rec.real_salary_usd = rec.real_salary / (rec.payslip_id.input("TY_GIA") or 1.0)
 
-def jprotect_cm_TristarPayslipSumaryCanteen_generate_report(self, **kwargs, TristarPayslipSumaryCanteen=None):
+def jprotect_cm_TristarPayslipSumaryCanteen_generate_report(self, TristarPayslipSumaryCanteen=None, **kwargs):
     workbook = super(TristarPayslipSumaryCanteen, self).generate_report(**kwargs)
 
     if not kwargs.get('tristar_payslip_sumary_canteen'):
@@ -84,7 +84,7 @@ def jprotect_cm_TristarPayslipSumaryCanteen_generate_report(self, **kwargs, Tris
     self.replace_dynamic_values(sheet, kwargs.get('render_values', {}))
     return workbook
 
-def jprotect_cm_TristarPayslipSumaryCanteen__get_line_data(self, seq, s, just_foreign_payslip=False, TristarPayslipSumaryCanteen=None):
+def jprotect_cm_TristarPayslipSumaryCanteen__get_line_data(self, seq, s, just_foreign_payslip=False, TristarPayslipSumaryCanteen=None, ):
     r1 = [
         seq, s.employee_id.name, s.employee_id.identification_id, s.employee_id.x_bank_account_number or None, s.job_id.name, s.contract_date_start, s.worked_months,
         s.social_insurance_wage/1000, s.old_wage/1000, s.current_wage/1000, s.responsibility_allowance/1000, s.telephone_allowance/1000, s.employee_id.contract_id.hot_allowance/1000,
@@ -99,7 +99,7 @@ def jprotect_cm_TristarPayslipSumaryCanteen__get_line_data(self, seq, s, just_fo
     r3 = [0, 0, s.note or None]
     return r1 + r2 + r3
 
-def jprotect_cm_TristarPayslipSumaryCanteen_export_payslip_run(self, run_id, just_foreign_payslip=False, TristarPayslipSumaryCanteen=None):
+def jprotect_cm_TristarPayslipSumaryCanteen_export_payslip_run(self, run_id, just_foreign_payslip=False, TristarPayslipSumaryCanteen=None, ):
     def get_sum_of_row_payslips(rows, skip_cell=2):
         if not rows:
             return []
@@ -186,7 +186,7 @@ def jprotect_cm_TristarPayslipSumaryCanteen_export_payslip_run(self, run_id, jus
         run_id=run_id,
     )
 
-def jprotect_cm_TristarPayslipSumaryCanteen_action_view_other_incomes(self, TristarPayslipSumaryCanteen=None):
+def jprotect_cm_TristarPayslipSumaryCanteen_action_view_other_incomes(self, TristarPayslipSumaryCanteen=None, ):
     self.ensure_one()
     incomes = self.env['salary.income'].search([
         ('employee_id', '=', self.workday_line_id.employee_id.id),
