@@ -132,7 +132,11 @@ def separate_file(file_path, save_path, main_path):
 
 
 if __name__ == "__main__":
-    file_path = 'C:/Users/duong/Desktop/advance/protect_python/separate_logic/hr_contract.py'
-    save_path = 'C:/Users/duong/Desktop/advance/protect_python/separate_logic/jprotect_hr_contract.py'
-    main_path = 'C:/Users/duong/Desktop/advance/protect_python/separate_logic/main_hr_contract.py'
+    file_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/hr_contract.py'
+    save_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/jprotect_hr_contract.py'
+    main_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/main_hr_contract.py'
     separate_file(file_path, save_path, main_path)
+
+    with open('C:/Users/hieudt/Desktop/python-advancexxx/1.py', 'w', encoding='utf8') as file1:
+        file1.write('s')
+

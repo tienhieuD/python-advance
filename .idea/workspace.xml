@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d37a957-d387-4327-bbad-4e4ad4194fea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python-advance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python-advance.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/main_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/main_hr_contract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/main_hr_contract.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +27,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1RXJyOEYF29jh4f4uHdTWpgQHNT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -43,19 +54,7 @@
       <recent name="C:\Users\hieudt\Desktop\python-advance\excel_template" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.separate_file">
+  <component name="RunManager" selected="Python.separate_dir">
     <configuration name="environment" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python-advance" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,6 +69,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jinja2/environment.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="separate_dir" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python-advance" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/protect_python/separate_logic" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -124,6 +144,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.separate_dir" />
         <item itemvalue="Python.separate_file" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.environment" />
@@ -155,15 +176,33 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/advance$separate_file.coverage" NAME="separate_file Coverage Results" MODIFIED="1587918441784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/protect_python/separate_logic" />
+  <component name="WindowStateProjectService">
+    <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587988957210">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587988957210" />
+    <state width="935" height="286" key="GridCell.Tab.0.bottom" timestamp="1587990859751">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="935" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1587990859751" />
+    <state width="935" height="286" key="GridCell.Tab.0.center" timestamp="1587990859751">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="935" height="286" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1587990859751" />
+    <state width="935" height="286" key="GridCell.Tab.0.left" timestamp="1587990859751">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="935" height="286" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1587990859751" />
+    <state width="935" height="286" key="GridCell.Tab.0.right" timestamp="1587990859751">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="935" height="286" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1587990859751" />
   </component>
 </project>
