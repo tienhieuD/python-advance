@@ -1,86 +1,106 @@
-from jprotect_hr_contract import *
-# -*- coding: utf-8 -*-
-from calendar import monthrange
-from datetime import date, datetime
-from odoo import models, fields, api, _
+from .jprotect_hr_contract import *
+
+import base64
+from datetime import datetime
+from io import BytesIO
+
+import openpyxl
+from dateutil.relativedelta import relativedelta
+
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
-from odoo.addons import decimal_precision as dp
-import logging
-import functools
-_logger = logging.getLogger(__name__)
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+from ...tristar_common.utils import utils
 
 
-def hide_zero_value(func):
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        return func(*args, **kwargs) or ""
-    return wrapper
+class TristarExportWorkday(models.TransientModel):
+    _name = 'tristar.export.workday'
+    _description = 'Tristar Export Workday'
 
-
-class HrPayslip(models.Model):
-    _inherit = 'hr.payslip'
-
-    x_status = fields.Selection([('draft', 'Nháp'), ('done', 'Hoàn thành')], default='draft', required=1)
-    payslip_run_id = fields.Many2one(required=1, ondelete='cascade')
-    total_salary = fields.Float(compute='_compute_total_salary', string='Thực lĩnh', digits=(16, 0))
-
-    def x_confirm_payslip(self):
-        return jprotect_cm_HrPayslip_x_confirm_payslip(self, HrPayslip=HrPayslip, )
-
-    def action_payslip_draft(self):
-        return jprotect_cm_HrPayslip_action_payslip_draft(self, HrPayslip=HrPayslip, )
-
-    def action_payslip_cancel(self):
-        return jprotect_cm_HrPayslip_action_payslip_cancel(self, HrPayslip=HrPayslip, )
-
-    @api.multi
-    def unlink(self):
-        return jprotect_cm_HrPayslip_unlink(self, HrPayslip=HrPayslip, )
-
-    @api.multi
-    def get_params(self, key, default=0.0):
-        return jprotect_cm_HrPayslip_get_params(self, key, default=0.0, HrPayslip=HrPayslip, )
-
-    @api.multi
-    def get_amounts(self, key, default=0.0):
-        return jprotect_cm_HrPayslip_get_amounts(self, key, default=0.0, HrPayslip=HrPayslip, )
-
-    @api.onchange('employee_id', 'date_from', 'date_to')
-    def onchange_employee(self):
-        return jprotect_cm_HrPayslip_onchange_employee(self, HrPayslip=HrPayslip, )
-
-    def _compute_total_salary(self):
-        return jprotect_cm_HrPayslip__compute_total_salary(self, HrPayslip=HrPayslip, )
-
-    @api.multi
-    def line(self, code):
-        return jprotect_cm_HrPayslip_line(self, code, HrPayslip=HrPayslip, )
-
-    @api.multi
-    def day(self, code):
-        return jprotect_cm_HrPayslip_day(self, code, HrPayslip=HrPayslip, )
-
-    @api.multi
-    def input(self, code):
-        return jprotect_cm_HrPayslip_input(self, code, HrPayslip=HrPayslip, )
+    department_id = fields.Many2one('hr.department')
+    month = fields.Selection([
+        ('1', '01'),
+        ('2', '02'),
+        ('3', '03'),
+        ('4', '04'),
+        ('5', '05'),
+        ('6', '06'),
+        ('7', '07'),
+        ('8', '08'),
+        ('9', '09'),
+        ('10', '10'),
+        ('11', '11'),
+        ('12', '12'),
+    ], string='Tháng', default=lambda self: str(fields.Date.today().month))
+    year = fields.Char('Năm', default=lambda self: str(fields.Date.today().year))
+    lunch_boarding_house_file = fields.Binary('Dữ liệu tiền ăn, nhà trọ')
 
     @api.model
-    def get_num_of_days(self, employee, field):
-        return jprotect_cm_HrPayslip_get_num_of_days(self, employee, field, HrPayslip=HrPayslip, )
+    # def get_workday_type_name_ot_holiday(self, is_not_need_confirm, activity, actual_start_time, actual_end_time):
+    def get_workday_type_name_ot_holiday(self, line):
+        return jprotect_cm_TristarExportWorkday_get_workday_type_name_ot_holiday(self, line, TristarExportWorkday=TristarExportWorkday, )
 
     @api.model
-    def _get_payslip_lines(self, contract_ids, payslip_id):
-        return jprotect_cm_HrPayslip__get_payslip_lines(self, contract_ids, payslip_id, HrPayslip=HrPayslip, )
+    def get_workday_type_holiday(self, other_activity_ids, line, is_not_need_confirm, code):
+        return jprotect_cm_TristarExportWorkday_get_workday_type_holiday(self, other_activity_ids, line, is_not_need_confirm, code, TristarExportWorkday=TristarExportWorkday, )
 
     @api.model
-    def get_worked_day_lines(self, contracts, date_from, date_to):
-        return jprotect_cm_HrPayslip_get_worked_day_lines(self, contracts, date_from, date_to, HrPayslip=HrPayslip, )
+    def get_workday_type_name_leave(self, activity, actual_start_time, actual_end_time):
+        return jprotect_cm_TristarExportWorkday_get_workday_type_name_leave(self, activity, actual_start_time, actual_end_time, TristarExportWorkday=TristarExportWorkday, )
 
     @api.model
-    def get_inputs(self, contracts, date_from, date_to):
-        return jprotect_cm_HrPayslip_get_inputs(self, contracts, date_from, date_to, HrPayslip=HrPayslip, )
+    def get_ot_time(self, start_ot_time, actual_end_time, is_leave_day=True):
+        return jprotect_cm_TristarExportWorkday_get_ot_time(self, start_ot_time, actual_end_time, is_leave_day=True, TristarExportWorkday=TristarExportWorkday, )
 
-class HrPayslipInput(models.Model):
-    _inherit = 'hr.payslip.input'
+    @api.model
+    def get_workday_type_name_ot(self, line, holiday=False):
+        return jprotect_cm_TristarExportWorkday_get_workday_type_name_ot(self, line, holiday=False, TristarExportWorkday=TristarExportWorkday, )
 
-    amount = fields.Float(digits=dp.get_precision('Payroll'))
+    @api.model
+    def get_work_night_time(self, actual_end_time, start_ot_time):
+        return jprotect_cm_TristarExportWorkday_get_work_night_time(self, actual_end_time, start_ot_time, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.model
+    def get_workday_type_name_night(self, is_not_need_confirm, activity, actual_start_time, actual_end_time):
+        return jprotect_cm_TristarExportWorkday_get_workday_type_name_night(self, is_not_need_confirm, activity, actual_start_time, actual_end_time, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.model
+    def get_late_time(self, workday_schedule, employee):
+        return jprotect_cm_TristarExportWorkday_get_late_time(self, workday_schedule, employee, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.model
+    def get_gasoline_fee(self, workday_schedule, employee):
+        return jprotect_cm_TristarExportWorkday_get_gasoline_fee(self, workday_schedule, employee, TristarExportWorkday=TristarExportWorkday, )
+
+    def get_leave_sign(self, leave_activities, actual_start_time, actual_end_time):
+        return jprotect_cm_TristarExportWorkday_get_leave_sign(self, leave_activities, actual_start_time, actual_end_time, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.model
+    def get_hr_workday_type(self, line, employee):
+        return jprotect_cm_TristarExportWorkday_get_hr_workday_type(self, line, employee, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.multi
+    def get_lunch_boarding_house_fee_data(self):
+        return jprotect_cm_TristarExportWorkday_get_lunch_boarding_house_fee_data(self, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.multi
+    def apply_export(self):
+        return jprotect_cm_TristarExportWorkday_apply_export(self, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.multi
+    def apply_export_kitchen(self):
+        return jprotect_cm_TristarExportWorkday_apply_export_kitchen(self, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.model
+    def get_hr_workday_type_kitchen(self, line, employee):
+        return jprotect_cm_TristarExportWorkday_get_hr_workday_type_kitchen(self, line, employee, TristarExportWorkday=TristarExportWorkday, )
+
+    @api.model
+    def get_workday_type_name_ot_kitchen(self, is_work_two_shift, break_time, plan_start_time, plan_end_time, actual_start_datetime, actual_end_datetime, ot_from, ot_to):
+        return jprotect_cm_TristarExportWorkday_get_workday_type_name_ot_kitchen(self, is_work_two_shift, break_time, plan_start_time, plan_end_time, actual_start_datetime, actual_end_datetime, ot_from, ot_to, TristarExportWorkday=TristarExportWorkday, )
+    # region: hieudt
+    def x_ot_amount(self, x, y, standard=(8, 17), night_standard=(22, 30)):
+        return jprotect_cm_TristarExportWorkday_x_ot_amount(self, x, y, standard=(8, 17), night_standard=(22, 30), TristarExportWorkday=TristarExportWorkday, )
+
+if __name__ == '__main__':
+    print(TristarExportWorkday.x_ot_amount(None, 8, 25, standard=None))
