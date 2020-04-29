@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d37a957-d387-4327-bbad-4e4ad4194fea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/main_hr_contract.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/demo/hr_contract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/demo/jprotect_hr_contract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/main_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/demo/main_hr_contract.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" afterDir="false" />
     </list>
@@ -48,6 +49,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hieudt\Desktop\python-advance\protect_python\separate_logic\demo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hieudt\Desktop\python-advance\excel_template" />
     </key>
@@ -87,7 +91,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\hieudt\Desktop\python-advance\protect_python\separate_logic\demo\hr_contract.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -208,25 +212,25 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587988957210" />
-    <state width="1899" height="351" key="GridCell.Tab.0.bottom" timestamp="1588079059736">
+    <state width="1899" height="286" key="GridCell.Tab.0.bottom" timestamp="1588155177366">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="351" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588079059736" />
-    <state width="1899" height="351" key="GridCell.Tab.0.center" timestamp="1588079059736">
+    <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
+    <state width="1899" height="286" key="GridCell.Tab.0.center" timestamp="1588155177366">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="351" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588079059736" />
-    <state width="1899" height="351" key="GridCell.Tab.0.left" timestamp="1588079059736">
+    <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
+    <state width="1899" height="286" key="GridCell.Tab.0.left" timestamp="1588155177366">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="351" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588079059736" />
-    <state width="1899" height="351" key="GridCell.Tab.0.right" timestamp="1588079059736">
+    <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
+    <state width="1899" height="286" key="GridCell.Tab.0.right" timestamp="1588155177366">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="351" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588079059736" />
-    <state x="666" y="260" width="587" height="530" key="find.popup" timestamp="1588072020951">
+    <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
+    <state x="666" y="260" width="587" height="530" key="find.popup" timestamp="1588155341828">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="666" y="260" width="587" height="530" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1588072020951" />
+    <state x="666" y="260" width="587" height="530" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1588155341828" />
   </component>
 </project>

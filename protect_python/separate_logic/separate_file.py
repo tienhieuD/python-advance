@@ -1,6 +1,8 @@
 import re
 import keyword
 
+line_replaced = 0
+total_line = 0
 
 def is_need_to_break(line, current_index=None, all_lines=None, pass_class_method=False):
     # or any(line.startswith('%s ' % kw) for kw in keyword.kwlist) \
@@ -74,6 +76,10 @@ def write_class_method(file, line, current_index, all_lines, class_name):
             continue
         file.write(next_line)
 
+        global line_replaced
+        line_replaced += 1
+        print('line_replaced: %s' % line_replaced)
+
 def looking_for_class_of_method(current_index, all_lines):
     class_name = None
     for back_line in all_lines[:current_index][::-1]:
@@ -88,10 +94,12 @@ def separate_file(file_path, save_path, main_path):
     with open(file_path, 'r', encoding='utf8') as file:
         lines = file.readlines() + ['\n'] * 2
 
+        global total_line
+        total_line += len(lines)
+        print('total_line: %s' % total_line)
+
         save_file = open(save_path, 'w', encoding='utf8')
         for index, l in enumerate(lines):
-            if index==808:
-                print(l)
             if is_import(l):
                 write_import(save_file, l, index, lines)
             elif is_global_variable(l):
@@ -134,9 +142,9 @@ def separate_file(file_path, save_path, main_path):
 
 
 if __name__ == "__main__":
-    file_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/hr_contract.py'
-    save_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/jprotect_hr_contract.py'
-    main_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/main_hr_contract.py'
+    file_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/demo/hr_contract.py'
+    save_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/demo/jprotect_hr_contract.py'
+    main_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/demo/main_hr_contract.py'
     separate_file(file_path, save_path, main_path)
 
     # with open('C:/Users/hieudt/Desktop/python-advancexxx/1.py', 'w', encoding='utf8') as file1:
