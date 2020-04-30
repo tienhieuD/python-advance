@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d37a957-d387-4327-bbad-4e4ad4194fea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python-advance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python-advance.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,25 +221,25 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1458" height="466" key="DebuggerActiveHint/0.0.1536.834@0.0.1536.834" timestamp="1588214220409" />
-    <state width="1515" height="286" key="GridCell.Tab.0.bottom" timestamp="1588270385082">
+    <state width="1515" height="286" key="GridCell.Tab.0.bottom" timestamp="1588271517407">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="286" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588270385082" />
+    <state width="1515" height="286" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588271517407" />
     <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1515" height="286" key="GridCell.Tab.0.center" timestamp="1588270385082">
+    <state width="1515" height="286" key="GridCell.Tab.0.center" timestamp="1588271517407">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="286" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1588270385082" />
+    <state width="1515" height="286" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1588271517407" />
     <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1515" height="286" key="GridCell.Tab.0.left" timestamp="1588270385082">
+    <state width="1515" height="286" key="GridCell.Tab.0.left" timestamp="1588271517407">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="286" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1588270385082" />
+    <state width="1515" height="286" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1588271517407" />
     <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1515" height="286" key="GridCell.Tab.0.right" timestamp="1588270385082">
+    <state width="1515" height="286" key="GridCell.Tab.0.right" timestamp="1588271517407">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="286" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1588270385082" />
+    <state width="1515" height="286" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1588271517407" />
     <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
     <state x="277" y="62" key="SettingsEditor" timestamp="1588256534161">
       <screen x="0" y="0" width="1536" height="834" />
