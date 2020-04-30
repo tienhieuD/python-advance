@@ -1,8 +1,5 @@
 import re
-import keyword
 
-line_replaced = 0
-total_line = 0
 
 def is_need_to_break(line, current_index=None, all_lines=None, pass_class_method=False):
     # or any(line.startswith('%s ' % kw) for kw in keyword.kwlist) \
@@ -13,8 +10,10 @@ def is_need_to_break(line, current_index=None, all_lines=None, pass_class_method
            or (is_class_method(line, current_index, all_lines) if not pass_class_method else False) \
            or is_class(line)
 
+
 def is_fields_line(line=''):
     return re.match('\s{4}\w+?\s*?=\s*?fields\.\w+?\(', line)
+
 
 def is_import(line=''):
     return line.startswith('from') or line.startswith('import')
@@ -68,17 +67,15 @@ def write_class_method(file, line, current_index, all_lines, class_name):
     if current_index + 1 >= len(all_lines):
         return
     for next_line in all_lines[current_index + 1:]:
-        if is_need_to_break(next_line, current_index, all_lines) or next_line.startswith('    @') or is_fields_line(next_line):
+        if is_need_to_break(next_line, current_index, all_lines) or next_line.startswith('    @') or is_fields_line(
+                next_line):
             break
         next_line = re.sub(r'^\s{4}(.+?)', '\g<1>', next_line)
-        if re.match(r'\w+?\s?=\s?fields\..+?\(', next_line)\
+        if re.match(r'\w+?\s?=\s?fields\..+?\(', next_line) \
                 or re.match(r'\s*?#', next_line):
             continue
         file.write(next_line)
 
-        global line_replaced
-        line_replaced += 1
-        print('line_replaced: %s' % line_replaced)
 
 def looking_for_class_of_method(current_index, all_lines):
     class_name = None
@@ -93,10 +90,6 @@ def looking_for_class_of_method(current_index, all_lines):
 def separate_file(file_path, save_path, main_path):
     with open(file_path, 'r', encoding='utf8') as file:
         lines = file.readlines() + ['\n'] * 2
-
-        global total_line
-        total_line += len(lines)
-        print('total_line: %s' % total_line)
 
         save_file = open(save_path, 'w', encoding='utf8')
         for index, l in enumerate(lines):
@@ -115,21 +108,28 @@ def separate_file(file_path, save_path, main_path):
         main_file = open(main_path, 'w', encoding='utf8')
         main_file.write('from .%s import *\n' % save_path.split('/')[-1].split('\\')[-1].split('.')[0])
         current_index = 0
-        while current_index < len(lines)-1:
+        while current_index < len(lines) - 1:
             l = lines[current_index]
             if is_class_method(l, current_index, lines):
                 main_file.write(l)
                 class_name = looking_for_class_of_method(current_index=current_index, all_lines=lines)
                 if class_name:
                     pattern = r'^    def\s(\w+?)\((.+?),?\s?(\*\w+?)?(,?\s?)(\*\*\w*?)?\):'
-                    replace_with = '        return jprotect_cm_{cls_name}_\g<1>(\g<2>, {cls_name}={cls_name}, \g<3>\g<4>\g<5>)'\
+                    replace_with = '        return jprotect_cm_{cls_name}_\g<1>(\g<2>, {cls_name}={cls_name}, \g<3>\g<4>\g<5>)' \
                         .format(cls_name=class_name)
                     new_define = re.sub(pattern, replace_with, l)
+                    if '=' in new_define:
+                        new_define_args = new_define.split(',')
+                        for index, arg in enumerate(new_define_args):
+                            if '=' in arg:
+                                new_define_args[index] = '{0}={0}'.format(arg.split('=')[0])
+                        new_define = ','.join(new_define_args)
                     main_file.write(new_define)
                 pass_index = 0
                 if current_index <= len(lines):
-                    for j, next_line in enumerate(lines[current_index+1:], 1):
-                        if is_need_to_break(next_line, current_index+j, lines) or next_line.startswith('    @') or is_fields_line(next_line):
+                    for j, next_line in enumerate(lines[current_index + 1:], 1):
+                        if is_need_to_break(next_line, current_index + j, lines) or next_line.startswith(
+                                '    @') or is_fields_line(next_line):
                             break
                         pass_index += 1
                 current_index += pass_index
@@ -141,12 +141,8 @@ def separate_file(file_path, save_path, main_path):
         main_file.close()
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # TEST
     file_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/demo/hr_contract.py'
     save_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/demo/jprotect_hr_contract.py'
     main_path = 'C:/Users/hieudt/Desktop/python-advance/protect_python/separate_logic/demo/main_hr_contract.py'
     separate_file(file_path, save_path, main_path)
-
-    # with open('C:/Users/hieudt/Desktop/python-advancexxx/1.py', 'w', encoding='utf8') as file1:
-    #     file1.write('s')
-

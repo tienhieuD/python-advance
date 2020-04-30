@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d37a957-d387-4327-bbad-4e4ad4194fea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python-advance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python-advance.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/demo/hr_contract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/jprotect_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/demo/jprotect_hr_contract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/main_hr_contract.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/demo/main_hr_contract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_file.py" afterDir="false" />
     </list>
@@ -39,7 +38,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/protect_python/separate_logic/dist/tristar_payroll_canteen/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,29 +48,29 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hieudt\Desktop\python-advance\protect_python\separate_logic\dist\tristar_payroll_canteen\models" />
+      <recent name="C:\Users\hieudt\Desktop\python-advance\excel_template" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hieudt\Desktop\python-advance\protect_python\separate_logic\demo" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\hieudt\Desktop\python-advance\excel_template" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.separate_dir">
-    <configuration name="environment" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.compile_code">
+    <configuration name="compile_code" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="python-advance" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jinja2" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="C:\code\myaddon\py368\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/protect_python/separate_logic" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/jinja2/environment.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" />
+      <option name="PARAMETERS" value="build_ext --inplace" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -165,13 +164,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.compile_code" />
+      <item itemvalue="Python.hr_contract" />
+      <item itemvalue="Python.separate_dir" />
+      <item itemvalue="Python.separate_file" />
+      <item itemvalue="Python.test" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.separate_dir" />
         <item itemvalue="Python.separate_file" />
+        <item itemvalue="Python.separate_dir" />
         <item itemvalue="Python.hr_contract" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.environment" />
       </list>
     </recent_temporary>
   </component>
@@ -208,29 +213,66 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587988957210">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="331" y="142" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588256504786">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state x="331" y="142" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1588256504786" />
     <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587988957210" />
-    <state width="1899" height="286" key="GridCell.Tab.0.bottom" timestamp="1588155177366">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="384" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588218216406">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state x="384" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1588218216406" />
+    <state width="1458" height="466" key="DebuggerActiveHint" timestamp="1588214220409">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1458" height="466" key="DebuggerActiveHint/0.0.1536.834@0.0.1536.834" timestamp="1588214220409" />
+    <state width="1515" height="286" key="GridCell.Tab.0.bottom" timestamp="1588270385082">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="286" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588270385082" />
     <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1899" height="286" key="GridCell.Tab.0.center" timestamp="1588155177366">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1515" height="286" key="GridCell.Tab.0.center" timestamp="1588270385082">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state width="1515" height="286" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1588270385082" />
     <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1899" height="286" key="GridCell.Tab.0.left" timestamp="1588155177366">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1515" height="286" key="GridCell.Tab.0.left" timestamp="1588270385082">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state width="1515" height="286" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1588270385082" />
     <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1899" height="286" key="GridCell.Tab.0.right" timestamp="1588155177366">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1515" height="286" key="GridCell.Tab.0.right" timestamp="1588270385082">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state width="1515" height="286" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1588270385082" />
     <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state x="666" y="260" width="587" height="530" key="find.popup" timestamp="1588155341828">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="277" y="62" key="SettingsEditor" timestamp="1588256534161">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state x="277" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1588256534161" />
+    <state x="407" y="31" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588214299801">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="407" y="31" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1588214299801" />
+    <state x="533" y="207" width="613" height="552" key="find.popup" timestamp="1588270370003">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="533" y="207" width="613" height="552" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1588270370003" />
     <state x="666" y="260" width="587" height="530" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1588155341828" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1588266295937">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1588266295937" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/Cython/Distutils/old_build_ext.py</url>
+          <line>185</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
