@@ -26,7 +26,6 @@ def separate_dir(fromDirectory, toDirectory, path_contain_regex, path_not_contai
     copy_tree(fromDirectory, toDirectory)
     files = get_files_in_dir(toDirectory)
     for index, file_path in enumerate(files):
-        print('separate_dir: %s%%' % (round(index / len(files) * 100)))
         save_path = re.sub('(\w+?).py$', 'jprotect_\g<1>.py', file_path)
         main_path = file_path
         if any(re.match(pattern, file_path) for pattern in path_not_contain_regex):
