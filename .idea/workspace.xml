@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d37a957-d387-4327-bbad-4e4ad4194fea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/separate_dir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/protect_python/separate_logic/compile_code.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,39 +222,47 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1458" height="466" key="DebuggerActiveHint/0.0.1536.834@0.0.1536.834" timestamp="1588214220409" />
-    <state width="1515" height="286" key="GridCell.Tab.0.bottom" timestamp="1588271517407">
+    <state width="1515" height="286" key="GridCell.Tab.0.bottom" timestamp="1588311469046">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="286" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588271517407" />
+    <state width="1515" height="286" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588311469046" />
     <state width="1899" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1515" height="286" key="GridCell.Tab.0.center" timestamp="1588271517407">
+    <state width="1515" height="286" key="GridCell.Tab.0.center" timestamp="1588311469046">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="286" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1588271517407" />
+    <state width="1515" height="286" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1588311469046" />
     <state width="1899" height="286" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1515" height="286" key="GridCell.Tab.0.left" timestamp="1588271517407">
+    <state width="1515" height="286" key="GridCell.Tab.0.left" timestamp="1588311469046">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="286" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1588271517407" />
+    <state width="1515" height="286" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1588311469046" />
     <state width="1899" height="286" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
-    <state width="1515" height="286" key="GridCell.Tab.0.right" timestamp="1588271517407">
+    <state width="1515" height="286" key="GridCell.Tab.0.right" timestamp="1588311469046">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1515" height="286" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1588271517407" />
+    <state width="1515" height="286" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1588311469046" />
     <state width="1899" height="286" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588155177366" />
     <state x="277" y="62" key="SettingsEditor" timestamp="1588256534161">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1588256534161" />
+    <state x="93" y="93" width="1350" height="648" key="VCS.FileHistoryDialog" timestamp="1588273854518">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1350" height="648" key="VCS.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1588273854518" />
     <state x="407" y="31" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588214299801">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="407" y="31" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1588214299801" />
-    <state x="533" y="207" width="613" height="552" key="find.popup" timestamp="1588270370003">
+    <state x="533" y="207" width="613" height="552" key="find.popup" timestamp="1588274059423">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="533" y="207" width="613" height="552" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1588270370003" />
+    <state x="533" y="207" width="613" height="552" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1588274059423" />
     <state x="666" y="260" width="587" height="530" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1588155341828" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1588274007704">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.0.1536.834@0.0.1536.834" timestamp="1588274007704" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1588266295937">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

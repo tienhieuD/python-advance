@@ -1,5 +1,5 @@
 #!python
-# cython: language_level=3
+#cython: language_level=3
 import os
 import re
 import sys
@@ -26,7 +26,8 @@ if __name__ == '__main__':  # RUN
             module_name = file_path.split(os.path.dirname(__file__))[-1].replace('\\', '.')[1:-3]
             ext_modules.append(Extension(module_name, [file_path]), )
             to_remove_files += [file_path]
-
+    for extension in ext_modules:
+        extension.cython_directives = {'language_level': "3"}
     setup(name='tristar', cmdclass={'build_ext': build_ext}, ext_modules=ext_modules)
 
     for remove_file_path in to_remove_files:
